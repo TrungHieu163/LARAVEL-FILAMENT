@@ -20,6 +20,8 @@ class Sv23810310387CategoryResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?string $slug = '23810310387-categories';
+
     public static function form(Schema $schema): Schema
     {
         return Sv23810310387CategoryForm::configure($schema);

@@ -20,6 +20,8 @@ class Sv23810310387ProductResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?string $slug = '23810310387-products';
+    
     public static function form(Schema $schema): Schema
     {
         return Sv23810310387ProductForm::configure($schema);
