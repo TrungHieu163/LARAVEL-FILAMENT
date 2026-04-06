@@ -7,8 +7,8 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Set;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Utilities\Set;
 use Illuminate\Support\Str;
 
 class Sv23810310387ProductForm
@@ -22,7 +22,7 @@ class Sv23810310387ProductForm
                     TextInput::make('name')
                         ->required()
                         ->live(onBlur: true)
-                        ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
+                        ->afterStateUpdated(fn (?string $state, Set $set) => $set('slug', Str::slug($state))),
 
                     TextInput::make('slug')
                         ->required()

@@ -6,7 +6,7 @@ use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Set;
+use Filament\Schemas\Components\Utilities\Set;
 use Illuminate\Support\Str;
 
 class Sv23810310387CategoryForm
@@ -16,9 +16,9 @@ class Sv23810310387CategoryForm
         return $schema
             ->components([
                 TextInput::make('name')
-                ->required()
-                ->live(onBlur: true)
-                ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))), // Tự động tạo slug
+                    ->required()
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(fn (?string $state, Set $set) => $set('slug', Str::slug($state))),
             
                 TextInput::make('slug')
                     ->required()
